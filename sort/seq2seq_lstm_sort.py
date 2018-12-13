@@ -110,13 +110,13 @@ n_out_seq_length = max_length
 # define LSTM configuration
 #n_batch = 10
 n_batch = 16
-n_epoch = 26
+n_epoch = 30
 #n_epoch = 20
 # create LSTM
 model = Sequential()
-model.add(LSTM(100, input_shape=(n_in_seq_length, n_chars)))
+model.add(LSTM(110, input_shape=(n_in_seq_length, n_chars)))
 model.add(RepeatVector(n_out_seq_length))
-model.add(LSTM(50, return_sequences=True))
+model.add(LSTM(60, return_sequences=True))
 model.add(TimeDistributed(Dense(n_chars, activation='softmax')))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 #print(model.summary())
